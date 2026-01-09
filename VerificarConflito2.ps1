@@ -19,7 +19,7 @@ Param(
 )
 
 Process {
-    Write-Host "--- Iniciando Auditoria de Atributo ---" -ForegroundColor Cyan
+    Write-Host "Insira dos dados para busca" -ForegroundColor Cyan
     Write-Host "Campo: $AttributeName | Valor: $SearchValue" -ForegroundColor Gray
 
     try {
@@ -32,14 +32,14 @@ Process {
         if ($matches) {
             $count = ($matches | Measure-Object).Count
             if ($count -gt 1) {
-                Write-Host "[!] ALERTA: Encontradas $count duplicatas!" -ForegroundColor Red
+                Write-Host "Encontradas $count duplicatas!" -ForegroundColor Red
                 $matches | Select-Object Name, SamAccountName, $AttributeName | Format-Table -AutoSize
             } else {
-                Write-Host "[V] SUCESSO: Valor único no diretório." -ForegroundColor Green
+                Write-Host "Valor único no AD." -ForegroundColor Green
                 $matches | Select-Object Name, SamAccountName, $AttributeName | Format-Table -AutoSize
             }
         } else {
-            Write-Host "[?] INFO: Nenhum usuário encontrado com este valor." -ForegroundColor Yellow
+            Write-Host "Nenhum usuário encontrado com este valor." -ForegroundColor Yellow
         }
     }
     catch {
@@ -48,3 +48,4 @@ Process {
     Write-Host "`nProcesso concluído." -ForegroundColor Gray
 Read-Host "Pressione ENTER para sair"
 }
+

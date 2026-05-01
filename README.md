@@ -1,5 +1,3 @@
-[REPO_README.md](https://github.com/user-attachments/files/27276436/REPO_README.md)
-
 # 🛠️ PowerShell Utilities
 
 > Scripts designed to automate and streamline routine tasks in corporate Service Desk and IT Infrastructure environments.
